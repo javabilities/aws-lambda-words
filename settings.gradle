@@ -1,0 +1,6 @@
+rootProject.name = 'aws-lambda-demo'
+
+include 'java-random-word'
+include 'java-reverse-word'
+include 'java-upper-word'
+include 'java-lambda-client'

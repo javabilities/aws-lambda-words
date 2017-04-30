@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
+mainClassName = 'com.javabilities.demo.LambdaClient'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (
+        'com.amazonaws:aws-lambda-java-core:1.1.0',
+        'com.amazonaws:aws-lambda-java-events:1.1.0',
+        'com.amazonaws:aws-java-sdk-lambda:1.11.115'
+    )
+}
+
+task runApp(type: JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'com.javabilities.demo.LambdaClient'
+}
+
+shadowJar {
+    baseName = 'java-lambda-client'
+    version = '0.1.0'
+}
+
+runShadow {
+}
