@@ -1,14 +1,15 @@
 package com.javabilities.demo;
 
-import com.amazonaws.services.lambda.runtime.Context;
-import com.amazonaws.services.lambda.runtime.LambdaLogger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class UpperWord {
-    public static Response upperWordHandler(Request request, Context context) {
-        LambdaLogger logger = context.getLogger();
-        logger.log("word to upper-case: " + request.getWord());
+    static final Logger logger = LogManager.getLogger(UpperWord.class);
+
+    public static Response handler(Request request) {
+        logger.info("word to upper-case: " + request.getWord());
         String upperWord = request.getWord().toUpperCase();
-        logger.log("upper-cased word: " + upperWord);
+        logger.info("upper-cased word: " + upperWord);
         return new Response(upperWord);
     }
 }
