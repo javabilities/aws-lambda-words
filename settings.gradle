@@ -1,4 +1,4 @@
-rootProject.name = 'aws-lambda-demo'
+rootProject.name = 'aws-lambda-words'
 
 include 'java-random-word'
 include 'java-reverse-word'
